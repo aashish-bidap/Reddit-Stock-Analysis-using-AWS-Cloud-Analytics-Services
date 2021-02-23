@@ -7,8 +7,8 @@ import boto3
 
 
 # authenticate API
-client_auth = requests.auth.HTTPBasicAuth('5em5QQs_URRGng', 'jnSyEe441MF9SF85jAss7mIgENEsQQ')
-data = {'grant_type': 'password','username': 'Crazy_Magician_9063','password': 'RELIANCE'}
+client_auth = requests.auth.HTTPBasicAuth('XXXX', 'XXXX')
+data = {'grant_type': 'password','username': 'XXXX','password': 'XXXX'}
 headers = {'User-Agent': 'mybot/0.0.1'}
 
 # send authentication request for OAuth token
@@ -17,7 +17,9 @@ TOKEN = f"bearer {res.json()['access_token']}"
 headers = {**headers, **{'Authorization': TOKEN}}
 
 def df_from_response(res):
-    
+    """
+     return a transformed dataframe for the reddit data
+    """
     # initialize temp dataframe for batch of data in response
     df = pd.DataFrame()
     
@@ -41,10 +43,11 @@ def df_from_response(res):
 
 
 def lambda_handler(event, context):
-    
-    print("event-",event)
-    print("context-",context)
-
+    """
+        1.Collects data from Reddit
+        2.Loads the Datafile to the S3 bucket
+        3.return a response for the Lex bot
+    """
     data = pd.DataFrame()
     params = {'limit': 100}
     print("Loading data to csv file..")
