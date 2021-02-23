@@ -1,0 +1,148 @@
+{
+  "metadata": {
+    "schemaVersion": "1.0",
+    "importType": "LEX",
+    "importFormat": "JSON"
+  },
+  "resource": {
+    "name": "Redstocks",
+    "version": "1",
+    "intents": [
+      {
+        "name": "AnalyzeIntent",
+        "version": "1",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Yes would love to the see the results",
+          "Yes surely",
+          "Yeah"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Analyzing the data..Give me a moment..!"
+            }
+          ]
+        },
+        "inputContexts": [
+          {
+            "name": "Dump"
+          }
+        ]
+      },
+      {
+        "name": "HelloIntent",
+        "version": "5",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "Hi",
+          "Hello"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Hi , I am Reddit Stock Bot. Want to know what the Redditors are talking about the stocks"
+            }
+          ]
+        },
+        "inputContexts": [],
+        "outputContexts": [
+          {
+            "turnsToLive": 5,
+            "timeToLiveInSeconds": 90,
+            "name": "Reddit"
+          }
+        ]
+      },
+      {
+        "name": "ApprovalIntent",
+        "version": "10",
+        "fulfillmentActivity": {
+          "codeHook": {
+            "uri": "arn:aws:lambda:us-east-1:960533670335:function:load_data_from_reddit",
+            "messageVersion": "1.0"
+          },
+          "type": "CodeHook"
+        },
+        "sampleUtterances": [
+          "Yes",
+          "Yeah",
+          "Yup"
+        ],
+        "slots": [],
+        "inputContexts": [
+          {
+            "name": "Reddit"
+          }
+        ],
+        "outputContexts": [
+          {
+            "turnsToLive": 5,
+            "timeToLiveInSeconds": 90,
+            "name": "Successfully"
+          },
+          {
+            "turnsToLive": 10,
+            "timeToLiveInSeconds": 300,
+            "name": "Dump"
+          }
+        ]
+      },
+      {
+        "name": "DenyIntent",
+        "version": "1",
+        "fulfillmentActivity": {
+          "type": "ReturnIntent"
+        },
+        "sampleUtterances": [
+          "No",
+          "Naa",
+          "Nope"
+        ],
+        "slots": [],
+        "conclusionStatement": {
+          "messages": [
+            {
+              "groupNumber": 1,
+              "contentType": "PlainText",
+              "content": "Good Bye..!"
+            }
+          ]
+        }
+      }
+    ],
+    "voiceId": "0",
+    "childDirected": false,
+    "locale": "en-US",
+    "idleSessionTTLInSeconds": 600,
+    "clarificationPrompt": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, can you please repeat that?"
+        }
+      ],
+      "maxAttempts": 5
+    },
+    "abortStatement": {
+      "messages": [
+        {
+          "contentType": "PlainText",
+          "content": "Sorry, I could not understand. Goodbye."
+        }
+      ]
+    },
+    "detectSentiment": false,
+    "enableModelImprovements": true
+  }
+}
