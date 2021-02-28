@@ -29,3 +29,14 @@ Lately, a group of online traders collaborated on Reddit & took down the hedge f
 ## Architecture
 ![Architecture](https://github.com/aashish-bidap/Reddit-Data-Analysis/blob/main/Architecture.png)
 
+## PROJECT DEMO EXECUTION
+**Click below on the Video**<br>
+<div align="center">
+      <a href="https://youtu.be/6qNSnpFNnqY">
+     <img 
+      src="https://img.youtube.com/vi/6qNSnpFNnqY/0.jpg" 
+      alt="Everything Is AWESOME" 
+      style="width:50%;">
+      </a>
+    </div>
+
