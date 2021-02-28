@@ -32,9 +32,9 @@ Lately, a group of online traders collaborated on Reddit & took down the hedge f
 ## PROJECT DEMO EXECUTION
 **Click below on the Video**<br>
 <div align="center">
-      <a href="https://youtu.be/6qNSnpFNnqY">
+      <a href="https://youtu.be/4muUPMsx_7o">
      <img 
-      src="https://img.youtube.com/vi/6qNSnpFNnqY/0.jpg" 
+      src="https://img.youtube.com/vi/4muUPMsx_7o/0.jpg" 
       alt="Everything Is AWESOME" 
       style="width:50%;">
       </a>
